@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains a basic configuration script for development environments, especially targeted at Java developers. The script automates the creation of a working directory, installation of essential tools, and configuration of useful aliases.
+This repository contains a comprehensive configuration script for development environments, targeted at full-stack developers. The script automates the creation of a working directory, installation of essential development tools, and configuration of environment variables.
 
 ## Repository Structure
 
@@ -18,17 +18,26 @@ This repository contains a basic configuration script for development environmen
 The `configure.sh` script performs the following tasks:
 
 1. **Working Directory Creation**:
-   - Checks and creates a `Workspace` directory in the user's home, if it doesn't exist
+   - Creates a `Workspace` directory in the user's home, if it doesn't exist
 
-2. **Aliases Configuration**:
+2. **Shell Configuration**:
    - Automatically detects which shell is being used (.zshrc or .bashrc)
    - Adds useful aliases (from the alias.txt file) to the shell configuration file
 
 3. **Development Tools Installation**:
-   - Git: Version control system
-   - Maven: Build automation tool for Java projects
-   - Gradle: Alternative build automation system to Maven
-   - OpenJDK 21: Java Development Kit version 21
+   - Java Development Kit (OpenJDK 21)
+   - Build tools: Maven and Gradle 
+   - Version control: Git
+   - C/C++ development: GCC and G++
+   - System information: Neofetch
+   - JavaScript ecosystem:
+     - Node.js (via NVM - Node Version Manager)
+     - Bun JavaScript runtime
+
+4. **Environment Configuration**:
+   - Sets up JAVA_HOME and adds it to PATH
+   - Configures Node Version Manager
+   - Sets up Bun runtime environment variables
 
 ## How to Use
 
@@ -59,10 +68,27 @@ The `configure.sh` script performs the following tasks:
 - Modify the `alias.txt` file to add your own aliases
 - Edit `configure.sh` to install additional tools as needed
 
+## Included Development Tools
+
+### Java Development
+- OpenJDK 21
+- Maven
+- Gradle
+
+### JavaScript Development
+- Node.js (via NVM)
+- npm (bundled with Node.js)
+- Bun JavaScript runtime
+
+### C/C++ Development
+- GCC (GNU Compiler Collection)
+- G++ (GNU C++ Compiler)
+
 ## Notes
 
 - The script requires superuser permissions to install packages
-- Changes to .zshrc or .bashrc files will be applied the next time you open a terminal
+- Changes to shell configuration files will be applied the next time you open a terminal or source the file
+- Node.js is installed using NVM, allowing easy version management
 
 ---
 
