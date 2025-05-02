@@ -35,6 +35,27 @@ sudo apt install -y maven
 sudo apt install -y gradle
 sudo apt install -y openjdk-21-jdk
 sudo apt install -y neofetch
+sudo apt install -y gcc g++
+sudo apt install -y curl wget
+
+echo "Installing NVM (Node Version Manager)..."
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+echo "Installing Node.js LTS version..."
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+nvm install --lts
+nvm use --lts
+
+echo "Installing Bun..."
+curl -fsSL https://bun.sh/install | bash
+
+if ! grep -q "BUN_INSTALL" "$SHELL_CONFIG"; then
+    echo -e "\n# Bun Environment Variables" >> "$SHELL_CONFIG"
+    echo 'export BUN_INSTALL="$HOME/.bun"' >> "$SHELL_CONFIG"
+    echo 'export PATH="$BUN_INSTALL/bin:$PATH"' >> "$SHELL_CONFIG"
+    echo "Bun configured in $SHELL_CONFIG"
+fi
 
 find_java_home() {
     potential_paths=(
